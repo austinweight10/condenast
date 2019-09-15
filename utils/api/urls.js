@@ -1,0 +1,4 @@
+export default {
+	topHeadlines: "https://newsapi.org/v2/top-headlines",
+	everything: "https://newsapi.org/v2/everything"
+};
