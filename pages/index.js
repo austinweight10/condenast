@@ -2,10 +2,16 @@ import React, { useState } from "react";
 import Head from "next/head";
 import styled from "styled-components";
 import { useDidMount } from "rooks";
-import axios from "axios";
 import Filters from "../components/Filters";
 import Posts from "../components/Posts";
 import Layout from "../components/Layout";
+import apiTopHeadlines from "../utils/api/apiTopHeadlines";
+
+/* api calls would normally be done in
+   pid.getInitialProps I have only do this 
+   to illustrate the seperation of frontend and 
+   backend and understanding of lifecycle methods 
+   this would also allow ssr */
 
 const HomepageSC = styled.div`
 	h1 {
@@ -28,13 +34,7 @@ const Home = () => {
 
 	useDidMount(async () => {
 		try {
-			const response = await axios({
-				method: "post",
-				url: "/api/top-headlines",
-				data: {
-					country: "gb"
-				}
-			});
+			const response = await apiTopHeadlines();
 			setPosts(response.data);
 		} catch (error) {
 			// todo error handling
