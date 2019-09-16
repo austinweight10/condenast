@@ -3,7 +3,7 @@
 ```sh
 $ yarn
 $ yarn build
-$ yarn start
+$ API_KEY_NEWS=[Token] yarn start
 ```
 
 ## Testing

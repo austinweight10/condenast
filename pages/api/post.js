@@ -1,4 +1,4 @@
-import topHeadlines from "../../utils/api/top-headlines";
+import topHeadlines from "../../utils/api/topHeadlines";
 import everything from "../../utils/api/everything";
 
 export default async (req, res) => {

@@ -5,9 +5,9 @@ import Filters from "./";
 
 Enzyme.configure({ adapter: new Adapter() });
 
-const setPostsData = () => {};
+const setPostsData = jest.fn();
 const filterData = "";
-const setFilterData = () => {};
+const setFilterData = jest.fn();
 
 describe("Post", () => {
 	const wrapper = shallow(

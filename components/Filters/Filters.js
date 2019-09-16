@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import axios from "axios";
 import { filterList } from "../../utils/filterList";
+import apiEverything from "../../utils/api/apiEverything";
 
 const FiltersSC = styled.nav`
 	border-top: 1px solid grey;
@@ -31,14 +32,7 @@ const FilterItemSC = styled.button`
 const Filters = ({ setPosts, filter: { setFilter, filter } }) => {
 	const applyFilter = selectedFilter => async () => {
 		try {
-			const response = await axios({
-				method: "post",
-				url: "/api/everything",
-				data: {
-					filter: selectedFilter.filter,
-					language: "en"
-				}
-			});
+			const response = await apiEverything({ selectedFilter });
 			setPosts(response.data);
 			setFilter(selectedFilter);
 		} catch (error) {
